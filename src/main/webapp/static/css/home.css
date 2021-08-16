@@ -1,0 +1,116 @@
+/*---------------------------------- HEADER ------------------------*/
+#header .navbar-nav {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#header{
+    background-color: rgba(2, 5, 64, 0.8);
+    position: sticky;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    border-bottom: 2px solid orange;
+}
+
+#header a.nav-link{
+    color: white;
+}
+
+#header a.nav-link:hover{
+    color: aqua;
+}
+
+#header img{
+    width: 65px;
+}
+
+/*------------------------------- BANNER ---------------------------*/
+
+#banner img{
+    width: 100%;
+}
+
+#banner ul li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* --------------------------------- MAIN --------------------------*/
+
+h3.tieu-de::after{
+    content: " ";
+    display: block;
+    width: 800px;
+    height: 2px;
+    background-color: rgba(219, 69, 31, 0.5);
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+
+#main .row .col-md-3{
+    margin-bottom: 20px;
+}
+
+#main .row .col-md-3 img{
+    width: 100%;
+}
+
+#main .row .col-md-3 .infor{
+    margin-top: 20px;
+}
+
+#main .row .col-md-3 .infor a{
+    color: black;
+    
+    
+}
+
+#main .row .col-md-3 .infor a h5{
+    color: black;
+    height: 50px;
+    overflow: hidden;
+    
+}
+
+#main .row .col-md-3 .infor a h5:hover{
+    color: darkslategray;
+}
+
+#main .row .col-md-3 img:hover{
+    transform: scale(1.1, 1.1);
+}
+
+#main .row .col-md-3 a{
+    text-decoration: none;
+}
+
+#main .row .col-md-3 a.btn{
+    color: white;
+}
+
+/*---------------------- FOOTER --------------------------*/
+
+#footer{
+    border-top: 2px solid orange;
+    margin-top: 40px;
+    background-color: rgba(2, 5, 40, 0.9);
+    padding-top: 20px;
+    color: aliceblue;
+}
+
+#footer ul{
+    padding-left: 0;
+}
+
+#footer ul a{
+    text-decoration: none;
+}
+
+#footer ul a li{
+    list-style: none;
+    color: aqua;
+}
