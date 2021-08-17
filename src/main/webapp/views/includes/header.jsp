@@ -36,11 +36,11 @@
 					data-toggle="dropdown"> Tài khoản </a>
 					<div class="dropdown-menu">
 						<c:choose>
-							<c:when test="${empty username }">
+							<c:when test="${empty cookie.key.value }">
 								<a class="dropdown-item" href="/ShopServletJspDemo/login">Login</a>
 							</c:when>
 							
-							<c:when test="${not empty username }">
+							<c:when test="${not empty cookie.key.value && not empty username }">
 								<a class="dropdown-item" href="#">${username }</a>
 								<a class="dropdown-item" href="/ShopServletJspDemo/logout">Logout</a>
 							</c:when>
