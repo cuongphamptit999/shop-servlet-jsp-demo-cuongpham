@@ -4,14 +4,13 @@
 <div id="header">
 	<nav class="navbar navbar-expand-sm container">
 		<!-- Brand -->
-		<a class="navbar-brand" href="/"><img
+		<a class="navbar-brand" href="/ShopServletJspDemo/home"><img
 			src="${pageContext.request.contextPath}/static/img/logo.png"
 			alt="logo"></a>
 
 		<ul class="navbar-nav">
 			<div class="nav-left" style="display: flex;">
-				<li class="nav-item"><a class="nav-link" href="/contact.html">Liên
-						hệ</a></li>
+				<li class="nav-item"><a class="nav-link" href="/ShopServletJspDemo/admin/add-product">Thêm sản phẩm</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Sản phẩm </a>
@@ -34,7 +33,7 @@
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Tài khoản </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Login</a>
+						<a class="dropdown-item" href="/ShopServletJspDemo/login">Login</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a>
 				</li>

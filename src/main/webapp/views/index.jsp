@@ -95,11 +95,11 @@
 				<c:forEach var="product" items="${listProduct }">
 
 					<div class="col-md-3">
-						<a href="/product_detail.html"><img
+						<a href="/ShopServletJspDemo/product-detail?id=${product.id }"><img
 							src="${pageContext.request.contextPath}/upload/${product.nameImg}"
 							alt="product"></a>
 						<div class="infor" style="text-align: center;">
-							<a href="/product_detail.html">
+							<a href="/ShopServletJspDemo/product-detail?id=${product.id }">
 								<h5>${product.name}</h5>
 							</a>
 							<fmt:parseNumber var="priceFormat" integerOnly="true"

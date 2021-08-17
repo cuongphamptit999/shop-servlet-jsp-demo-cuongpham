@@ -17,7 +17,7 @@ import vn.ptit.dao.ProductDAO;
 import vn.ptit.model.Category;
 import vn.ptit.model.Product;
 
-@WebServlet(urlPatterns = "/add-product")
+@WebServlet(urlPatterns = "/admin/add-product")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
 		maxFileSize = 1024 * 1024 * 10, // 10 MB
 		maxRequestSize = 1024 * 1024 * 100 // 100 MB
@@ -31,7 +31,7 @@ public class AddProductController extends HttpServlet {
 
 		req.setAttribute("listCate", listCate);
 
-		RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/addProduct.jsp");
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("addProduct.jsp");
 		requestDispatcher.forward(req, resp);
 	}
 
