@@ -13,6 +13,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import vn.ptit.dao.UserDAO;
+import vn.ptit.model.User;
+
 @WebFilter(urlPatterns = "/admin/*")
 public class CheckLogin implements Filter {
 	@Override
@@ -22,16 +25,22 @@ public class CheckLogin implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		Cookie cookies[] = req.getCookies();
-		boolean flag = false;
+		String key = null;
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equalsIgnoreCase("key")) {
-				flag = true;
+				key = cookie.getValue();
 				break;
 			}
 		}
 
-		if (flag)
+		if (key!=null) {
+			UserDAO userDAO = new UserDAO();
+			User user = userDAO.getUserByKey(key);
+			
+			req.getSession().setAttribute("username", user.getUsername());
 			chain.doFilter(request, response);
+		}
+			
 		else
 			resp.sendRedirect("/ShopServletJspDemo/login");
 

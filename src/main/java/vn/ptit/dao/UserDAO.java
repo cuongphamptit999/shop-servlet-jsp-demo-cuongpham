@@ -31,4 +31,23 @@ public class UserDAO extends DAO{
 		return user;
 
 	}
+	
+	public User getUserByKey(String key) {
+		User user = null;
+		String sql = "SELECT * FROM tbluser WHERE tbluser.key = ?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, key);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				user = new User(rs.getInt("id"),rs.getString("key"),rs.getString("username"),rs.getString("password"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+
+	}
 }

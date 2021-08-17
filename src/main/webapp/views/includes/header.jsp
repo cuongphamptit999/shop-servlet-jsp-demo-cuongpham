@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="header">
 	<nav class="navbar navbar-expand-sm container">
@@ -10,7 +11,8 @@
 
 		<ul class="navbar-nav">
 			<div class="nav-left" style="display: flex;">
-				<li class="nav-item"><a class="nav-link" href="/ShopServletJspDemo/admin/add-product">Thêm sản phẩm</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/ShopServletJspDemo/admin/add-product">Thêm sản phẩm</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Sản phẩm </a>
@@ -33,7 +35,16 @@
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Tài khoản </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="/ShopServletJspDemo/login">Login</a>
+						<c:choose>
+							<c:when test="${empty username }">
+								<a class="dropdown-item" href="/ShopServletJspDemo/login">Login</a>
+							</c:when>
+							
+							<c:when test="${not empty username }">
+								<a class="dropdown-item" href="#">${username }</a>
+								<a class="dropdown-item" href="/ShopServletJspDemo/logout">Logout</a>
+							</c:when>
+						</c:choose>
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a>
 				</li>
