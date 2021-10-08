@@ -2,7 +2,6 @@ package vn.ptit.model;
 
 public class User {
 	private int id;
-	private String key;
 	private String username;
 	private String password;
 	
@@ -10,10 +9,9 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String key, String username, String password) {
+	public User(int id, String username, String password) {
 		super();
 		this.id = id;
-		this.key = key;
 		this.username = username;
 		this.password = password;
 	}
@@ -24,14 +22,6 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
 	}
 
 	public String getUsername() {
@@ -50,5 +40,4 @@ public class User {
 		this.password = password;
 	}
 	
-
 }

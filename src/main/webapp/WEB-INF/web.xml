@@ -4,9 +4,11 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>ShopServletJspDemo</display-name>
-	<welcome-file-list>
-		<welcome-file>/views/index.jsp</welcome-file>
-	</welcome-file-list>
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+	</servlet-mapping>
 
 	<error-page>
 		<error-code>404</error-code>

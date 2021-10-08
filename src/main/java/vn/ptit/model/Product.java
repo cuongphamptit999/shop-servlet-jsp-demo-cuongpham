@@ -5,19 +5,21 @@ public class Product {
 	private String name;
 	private String nameImg;
 	private double price;
-	private int category_id;
+	private String content;
+	private int categoryId;
 	
 	public Product() {
 	
 	}
 
-	public Product(int id, String name, String nameImg, double price, int category_id) {
+	public Product(int id, String name, String nameImg, double price, String content, int categoryId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.nameImg = nameImg;
 		this.price = price;
-		this.category_id = category_id;
+		this.content = content;
+		this.categoryId = categoryId;
 	}
 
 	public int getId() {
@@ -52,12 +54,20 @@ public class Product {
 		this.price = price;
 	}
 
-	public int getCategory_id() {
-		return category_id;
+	public String getContent() {
+		return content;
 	}
 
-	public void setCategory_id(int category_id) {
-		this.category_id = category_id;
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 }

@@ -17,37 +17,29 @@
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Sản phẩm </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Hãng A</a> <a
-							class="dropdown-item" href="#">Hãng B</a> <a
-							class="dropdown-item" href="#">Hãng C</a>
+						<c:forEach var="category_" items="${listCate }">
+							<a class="dropdown-item" href="#">${category_.name }</a>
+						</c:forEach>
 					</div></li>
 			</div>
 
 			<div class="nav-right" style="display: flex;">
-				<form class="form-inline" action="#">
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search">
-					<button class="btn btn-success" type="submit">
-						<i class="fas fa-search"></i>
-					</button>
-				</form>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbardrop"
 					data-toggle="dropdown"> Tài khoản </a>
 					<div class="dropdown-menu">
 						<c:choose>
-							<c:when test="${empty cookie.key.value }">
+							<c:when test="${empty cookie.username.value }">
 								<a class="dropdown-item" href="/ShopServletJspDemo/login">Login</a>
 							</c:when>
-							
-							<c:when test="${not empty cookie.key.value && not empty username }">
-								<a class="dropdown-item" href="#">${username }</a>
+
+							<c:when test="${not empty cookie.username.value }">
+								<a class="dropdown-item" href="#">${cookie.username.value }</a>
 								<a class="dropdown-item" href="/ShopServletJspDemo/logout">Logout</a>
 							</c:when>
 						</c:choose>
 					</div></li>
-				<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
 			</div>
 		</ul>
 	</nav>

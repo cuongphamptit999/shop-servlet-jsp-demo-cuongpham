@@ -16,7 +16,7 @@ public class CategoryDAO extends DAO{
 	
 	public List<Category> getCategoryDAO(){
 		List<Category> list = new ArrayList<>();
-		String sql = "SELECT * FROM category";
+		String sql = "SELECT * FROM tbl_category";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();

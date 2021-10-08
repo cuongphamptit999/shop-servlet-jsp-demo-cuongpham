@@ -13,11 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Cookie cookie = new Cookie("key", "");
+		Cookie cookie = new Cookie("username", "");
 		cookie.setMaxAge(0);
 		resp.addCookie(cookie);
-		req.getSession().setAttribute("username", null);
-		resp.sendRedirect("/ShopServletJspDemo/home");
+		resp.sendRedirect("/ShopServletJspDemo/");
 
 	}
 

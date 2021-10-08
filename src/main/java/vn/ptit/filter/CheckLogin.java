@@ -25,19 +25,15 @@ public class CheckLogin implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		Cookie cookies[] = req.getCookies();
-		String key = null;
+		String username = null;
 		for (Cookie cookie : cookies) {
-			if (cookie.getName().equalsIgnoreCase("key")) {
-				key = cookie.getValue();
+			if (cookie.getName().equalsIgnoreCase("username")) {
+				username = cookie.getValue();
 				break;
 			}
 		}
 
-		if (key!=null) {
-			UserDAO userDAO = new UserDAO();
-			User user = userDAO.getUserByKey(key);
-			
-			req.getSession().setAttribute("username", user.getUsername());
+		if (username!=null) {
 			chain.doFilter(request, response);
 		}
 			

@@ -96,7 +96,7 @@
 
 					<div class="col-md-3">
 						<a href="/ShopServletJspDemo/product-detail?id=${product.id }"><img
-							src="${pageContext.request.contextPath}/upload/${product.nameImg}"
+							src="${pageContext.request.contextPath}/static/upload/${product.nameImg}"
 							alt="product"></a>
 						<div class="infor" style="text-align: center;">
 							<a href="/ShopServletJspDemo/product-detail?id=${product.id }">
@@ -104,7 +104,7 @@
 							</a>
 							<fmt:parseNumber var="priceFormat" integerOnly="true"
 								type="number" value="${product.price}" />
-							<p>${priceFormat }$</p>
+							<p>$ ${priceFormat }</p>
 							<a href="#" class="btn btn-success"><i
 								class="fas fa-shopping-cart"></i>&nbsp;Mua ngay</a>
 						</div>

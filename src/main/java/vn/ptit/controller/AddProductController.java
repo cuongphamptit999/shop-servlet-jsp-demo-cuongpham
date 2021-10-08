@@ -2,6 +2,10 @@ package vn.ptit.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,13 +29,12 @@ import vn.ptit.model.Product;
 public class AddProductController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		CategoryDAO categoryDAO = new CategoryDAO();
 		List<Category> listCate = categoryDAO.getCategoryDAO();
 
 		req.setAttribute("listCate", listCate);
 
-		RequestDispatcher requestDispatcher = req.getRequestDispatcher("addProduct.jsp");
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("add_product.jsp");
 		requestDispatcher.forward(req, resp);
 	}
 
@@ -42,19 +45,21 @@ public class AddProductController extends HttpServlet {
 
 		String name = req.getParameter("name");
 		double price = Double.parseDouble(req.getParameter("price"));
-		int category_id = Integer.parseInt(req.getParameter("category_id"));
+		int categoryId = Integer.parseInt(req.getParameter("categoryId"));
+		String content = req.getParameter("content");
 
 		ProductDAO productDAO = new ProductDAO();
 		Product product = new Product();
 		product.setName(name);
-		product.setCategory_id(category_id);
+		product.setCategoryId(categoryId);
+		product.setContent(content);
 		product.setPrice(price);
 		
 		//upload file
 		Part filePart = req.getPart("file");
 	    String fileName = filePart.getSubmittedFileName();
 	    for (Part part : req.getParts()) {
-	      part.write("D:\\PTIT\\ShopServletJspDemo\\src\\main\\webapp\\upload\\" + fileName);
+	    	part.write("D:\\PTIT\\ShopServletJspDemo\\src\\main\\webapp\\static\\upload\\" + fileName);
 	    }
 	    
 		product.setNameImg(fileName);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	
 <div id="footer">
 	<div class="container">
@@ -10,15 +11,11 @@
 			<div class="col-md-3">
 				<h4>SẢN PHẨM</h4>
 				<ul>
+				<c:forEach var="category_" items="${listCate }">
 					<a href="#">
-						<li>Hãng A</li>
+						<li>${category_.name }</li>
 					</a>
-					<a href="#">
-						<li>Hãng A</li>
-					</a>
-					<a href="#">
-						<li>Hãng A</li>
-					</a>
+				</c:forEach>
 				</ul>
 			</div>
 

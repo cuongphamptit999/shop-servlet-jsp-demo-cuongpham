@@ -52,26 +52,18 @@
 			<div class="item-detail">
 				<div class="row">
 					<div class="col-md-5">
-						<img src="${pageContext.request.contextPath}/upload/${product.nameImg}" alt="product">
+						<img src="${pageContext.request.contextPath}/static/upload/${product.nameImg}" alt="product">
 						<div class="list-img">
-							<img src="${pageContext.request.contextPath}/upload/${product.nameImg}" alt="product"
+							<img src="${pageContext.request.contextPath}/static/upload/${product.nameImg}" alt="product"
 								onclick="selectImg('${product.nameImg}')">
 						</div>
 					</div>
 					<div class="col-md-7">
 						<h3>${product.name}</h3>
 						<h5>Thông tin sản phẩm</h5>
-						<p>Túi xách là một phụ kiện thời trang không thể thiếu của các
-							bạn trẻ dù là nam hay nữ, nó thể hiện phong cách cũng như cá tính
-							của chủ nhân. Nếu bạn yêu thích phong cách đơn giản nhưng tinh tế
-							thì chiếc túi xách là một lựa chọn hoàn hảo cho bạn.Chiếc túi
-							xách Tote 6 sở hữu thiết kế thời trang với phần nắp túi cách điệu
-							kết hợp tông màu nổi bật, những đường may tinh tế, cùng gam màu
-							trung tính trẻ trung năng động sẽ vô cùng hữu dụng cho bạn trong
-							việc chứa các vật dụng cá nhân. Bên cạnh đó, túi xách còn thể
-							hiện gu thời trang và cá tính của bạn.</p>
+						<p>${product.content }</p>
 						Giá:&emsp;
-						<h2 style="display: inline-block;">${product.price} $</h2>
+						<h2 style="display: inline-block;">$ ${product.price}</h2>
 						<div class="btn-buy">
 							<button type="button" class="btn btn-warning"
 								style="width: 100%; margin-bottom: 10px;">Cho vào giỏ</button>

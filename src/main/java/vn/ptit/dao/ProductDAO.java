@@ -16,14 +16,14 @@ public class ProductDAO extends DAO {
 
 	public List<Product> getProduct() {
 		List<Product> list = new ArrayList<>();
-		String sql = "SELECT * FROM product";
+		String sql = "SELECT * FROM tbl_product";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("nameImg"),
-						rs.getDouble("price"), rs.getInt("category_id"));
+				Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("name_img"),
+						rs.getDouble("price"), rs.getString("content"), rs.getInt("category_id"));
 				list.add(product);
 			}
 		} catch (SQLException e) {
@@ -34,13 +34,14 @@ public class ProductDAO extends DAO {
 	}
 
 	public void addProduct(Product product) {
-		String sql = "INSERT INTO product (name,nameImg,price,category_id) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO tbl_product (name,name_img,price,content,category_id) VALUES (?,?,?,?,?)";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, product.getName());
 			ps.setString(2, product.getNameImg());
 			ps.setDouble(3, product.getPrice());
-			ps.setInt(4, product.getCategory_id());
+			ps.setString(4, product.getContent());
+			ps.setInt(5, product.getCategoryId());
 			ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -50,15 +51,15 @@ public class ProductDAO extends DAO {
 
 	public Product getOneProduct(int id) {
 		Product product = null;
-		String sql = "SELECT * FROM product WHERE id = ?";
+		String sql = "SELECT * FROM tbl_product WHERE id = ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("nameImg"),
-						rs.getDouble("price"), rs.getInt("category_id"));
+				product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("name_img"),
+						rs.getDouble("price"), rs.getString("content"), rs.getInt("category_id"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

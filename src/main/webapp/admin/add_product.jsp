@@ -44,11 +44,11 @@
 	<div id="main">
 		<div class="container mt-5">
 			<div class="contact-form">
-				<form action="/ShopServletJspDemo/add-product" method="POST"
+				<form action="/ShopServletJspDemo/admin/add-product" method="POST"
 					enctype="multipart/form-data">
 
 					<div class="form-group">
-						<label>Hãng sản xuất:</label> <select name="category_id"
+						<label>Hãng sản xuất:</label> <select name="categoryId"
 							class="form-control">
 							<c:forEach var="category" items="${listCate }">
 								<option value="${category.id }">${category.name }</option>
@@ -63,8 +63,13 @@
 					</div>
 
 					<div class="form-group">
-						<label>Gía:</label> <input type="text" class="form-control"
+						<label>Giá:</label> <input type="text" class="form-control"
 							placeholder="Enter price" name="price">
+					</div>
+					
+					<div class="form-group">
+						<label>Nội dung:</label> <input type="text" class="form-control"
+							placeholder="Enter content" name="content">
 					</div>
 
 					<div class="form-group">
